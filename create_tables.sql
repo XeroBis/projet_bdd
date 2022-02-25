@@ -15,3 +15,64 @@ DROP TABLE PROGRAMME CASCADE CONSTRAINTS;
 prompt *************************************************************
 prompt ******************** CREATE TABLE ***************************
 prompt *************************************************************
+
+CREATE TABLE COACH (
+    idCoach     NUMBER,
+    nom         VARCHAR2(20),
+    prenom      VARCHAR2(20),
+    nomClub     VARCHAR2(20),
+    CONSTRAINTS pk_coach PRIMARY KEY (idCoach)
+)
+
+
+CREATE TABLE COMBATTANT (
+    idComb      NUMBER,
+    nom         VARCHAR2(20),
+    pren        VARCHAR2(20),
+    idCoach     NUMBER,
+    classement  NUMBER,
+    CONSTRAINTS pk_combattant PRIMARY KEY (idComb)
+    CONSTRAINTS fk_comb_coach FOREIGN KEY (idCoach) REFERENCES COACH(idCoach)
+)
+
+CREATE TABLE LIEU (
+    idLieu      NUMBER,
+    pays        VARCHAR2(20),
+    ville       VARCHAR2(20),
+    rue         VARCHAR2(40),
+    numéro      NUMBER
+)
+
+CREATE TABLE ARBITRE (
+    idArbitre       NUMBER,
+    nom             VARCHAR2(20),
+    prenom          VARCHAR2(20),
+    idLieu          VARCHAR2(20),
+    CONSTRAINTS pk_arbitre PRIMARY KEY (idArbitre),
+    CONSTRAINTS fk_arbitre_lieu FOREIGN KEY idLieu REFERENCES LIEU(idLieu)
+)
+
+
+
+CREATE TABLE TOURNOIS (
+    idTournoi       NUMBER,
+    idCombRouge     NUMBER,
+    idCombBleu      NUMBER,
+    idGagnant       NUMBER,
+    idArbitre       NUMBER,
+    CONSTRAINTS pk_tournoi PRIMARY KEY (idTournoi, idCombRouge, idCombBleu),
+    CONSTRAINTS fk_tournoi_comb_rouge FOREIGN KEY idCombRouge REFERENCES COMBATTANT(idComb),
+    CONSTRAINTS fk_tournoi_comb_bleu FOREIGN KEY idCombBleu REFERENCES COMBATTANT(idComb),
+    CONSTRAINTS fk_tournoi_coach FOREIGN KEY idArbitre REFERENCES ARBITRE(idArbitre),
+    CONSTRAINTS fk_tournoi_comb FOREIGN KEY idGagnant REFERENCES COMBATTANT(idComb)
+)
+
+CREATE TABLE PROGRAMME (
+    jour        date,
+    idTournoi   NUMBER,
+    idLieu      NUMBER,
+    prixTicket  NUMBER,
+    CONSTRAINTS pk_prog PRIMARY KEY (jour, idTournoi,idLieu),
+    CONSTRAINTS fk_prog_tournoi FOREIGN KEY idTournoi REFERENCES TOURNOIS(idTournoi),
+    CONSTRAINTS fk_prog_lieu FOREIGN KEY idLieu REFERENCES LIEU(idLieu)
+)
