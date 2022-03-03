@@ -60,19 +60,11 @@ CREATE TABLE TOURNOIS (
     idCombBleu      NUMBER,
     idGagnant       NUMBER,
     idArbitre       NUMBER,
+    jour            date,
+    idLieu          NUMBER,
     CONSTRAINTS pk_tournoi PRIMARY KEY (idTournoi, idCombRouge, idCombBleu),
     CONSTRAINTS fk_tournoi_comb_rouge FOREIGN KEY idCombRouge REFERENCES COMBATTANT(idComb),
     CONSTRAINTS fk_tournoi_comb_bleu FOREIGN KEY idCombBleu REFERENCES COMBATTANT(idComb),
     CONSTRAINTS fk_tournoi_coach FOREIGN KEY idArbitre REFERENCES ARBITRE(idArbitre),
     CONSTRAINTS fk_tournoi_comb FOREIGN KEY idGagnant REFERENCES COMBATTANT(idComb)
-)
-
-CREATE TABLE PROGRAMME (
-    jour        date,
-    idTournoi   NUMBER,
-    idLieu      NUMBER,
-    prixTicket  NUMBER,
-    CONSTRAINTS pk_prog PRIMARY KEY (jour, idTournoi,idLieu),
-    CONSTRAINTS fk_prog_tournoi FOREIGN KEY idTournoi REFERENCES TOURNOIS(idTournoi),
-    CONSTRAINTS fk_prog_lieu FOREIGN KEY idLieu REFERENCES LIEU(idLieu)
 )
