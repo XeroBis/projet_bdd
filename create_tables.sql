@@ -62,6 +62,7 @@ CREATE TABLE TOURNOIS (
     idArbitre       NUMBER,
     jour            date,
     idLieu          NUMBER,
+    round           NUMBER,
     CONSTRAINTS pk_tournoi PRIMARY KEY (idTournoi, idCombRouge, idCombBleu),
     CONSTRAINTS fk_tournoi_comb_rouge FOREIGN KEY idCombRouge REFERENCES COMBATTANT(idComb),
     CONSTRAINTS fk_tournoi_comb_bleu FOREIGN KEY idCombBleu REFERENCES COMBATTANT(idComb),
