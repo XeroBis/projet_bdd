@@ -28,7 +28,7 @@ CREATE TABLE COACH (
 CREATE TABLE COMBATTANT (
     idComb      NUMBER,
     nom         VARCHAR2(20),
-    pren        VARCHAR2(20),
+    prenom      VARCHAR2(20),
     idCoach     NUMBER,
     classement  NUMBER,
     CONSTRAINTS pk_combattant PRIMARY KEY (idComb)
@@ -40,7 +40,8 @@ CREATE TABLE LIEU (
     pays        VARCHAR2(20),
     ville       VARCHAR2(20),
     rue         VARCHAR2(40),
-    numéro      NUMBER
+    numéro      NUMBER,
+    CONSTRAINTS pk_lieu PRIMARY KEY (idLieu)
 )
 
 CREATE TABLE ARBITRE (
