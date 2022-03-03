@@ -48,9 +48,7 @@ CREATE TABLE ARBITRE (
     idArbitre       NUMBER,
     nom             VARCHAR2(20),
     prenom          VARCHAR2(20),
-    idLieu          VARCHAR2(20),
-    CONSTRAINTS pk_arbitre PRIMARY KEY (idArbitre),
-    CONSTRAINTS fk_arbitre_lieu FOREIGN KEY idLieu REFERENCES LIEU(idLieu)
+    CONSTRAINTS pk_arbitre PRIMARY KEY (idArbitre)
 )
 
 
