@@ -37,6 +37,7 @@ CREATE TABLE COMBATTANT (
 
 CREATE TABLE LIEU (
     idLieu      NUMBER,
+    nomLieu     VARCHAR2(20),
     pays        VARCHAR2(20),
     ville       VARCHAR2(20),
     rue         VARCHAR2(40),
