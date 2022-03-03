@@ -30,7 +30,7 @@ CREATE TABLE COMBATTANT (
     nom         VARCHAR2(20),
     prenom      VARCHAR2(20),
     idCoach     NUMBER,
-    classement  NUMBER,
+    nbPoint     NUMBER,
     CONSTRAINTS pk_combattant PRIMARY KEY (idComb)
     CONSTRAINTS fk_comb_coach FOREIGN KEY (idCoach) REFERENCES COACH(idCoach)
 )
