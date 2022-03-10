@@ -4,36 +4,35 @@ COACH
 ARBITRE
 LIEU
 TOURNOIS
-PROGRAMME
 */
 CREATE SEQUENCE sequenceCleCoach START WITH 1 INCREMENT BY 1;
 CREATE SEQUENCE sequenceCleCombattant START WITH 1 INCREMENT BY 1;
 CREATE SEQUENCE sequenceCleLieu START WITH 1 INCREMENT BY 1;
 CREATE SEQUENCE sequenceCleArbitre START WITH 1 INCREMENT BY 1;
 
-INSERT INTO COACH VALUES(sequenceCleCoach.nextval, "Jean", "Jacques", "LES BG");
-INSERT INTO COACH VALUES(sequenceCleCoach.nextval, "Nathan", "Boite", "Big Boom");
-INSERT INTO COACH VALUES(sequenceCleCoach.nextval, "Coralie", "Makaise", "fleurs");
-INSERT INTO COACH VALUES(sequenceCleCoach.nextval, "Owen", "Marron", "CRIEUR");
-INSERT INTO COACH VALUES(sequenceCleCoach.nextval, "Alan", "Hector", "Winners");
+INSERT INTO COACH VALUES(sequenceCleCoach.nextval, 'Jean', 'Jacques', 'LES BG');
+INSERT INTO COACH VALUES(sequenceCleCoach.nextval, 'Nathan', 'Boite', 'Big Boom');
+INSERT INTO COACH VALUES(sequenceCleCoach.nextval, 'Coralie', 'Makaise', 'fleurs');
+INSERT INTO COACH VALUES(sequenceCleCoach.nextval, 'Owen', 'Marron', 'CRIEUR');
+INSERT INTO COACH VALUES(sequenceCleCoach.nextval, 'Alan', 'Hector', 'Winners');
 
-INSERT INTO COMBATTANT VALUES (sequenceCleCombattant.nextval, "Pierre", "Paul", 5, null);
-INSERT INTO COMBATTANT VALUES (sequenceCleCombattant.nextval, "Marc", "Paul", 5, null);
-INSERT INTO COMBATTANT VALUES (sequenceCleCombattant.nextval, "Jules", "rjx", 2, null);
-INSERT INTO COMBATTANT VALUES (sequenceCleCombattant.nextval, "Pierre", "Alexandre", 3, null);
-INSERT INTO COMBATTANT VALUES (sequenceCleCombattant.nextval, "Vladimir", "olga", 4, null);
-INSERT INTO COMBATTANT VALUES (sequenceCleCombattant.nextval, "César", "Pl", 2, null);
-INSERT INTO COMBATTANT VALUES (sequenceCleCombattant.nextval, "Jolyne", "Jojo", 1, null);
-INSERT INTO COMBATTANT VALUES (sequenceCleCombattant.nextval, "Jonathan", "Joeystar", 1, null);
+INSERT INTO COMBATTANT VALUES (sequenceCleCombattant.nextval, 'Pierre', 'Paul', 5, null);
+INSERT INTO COMBATTANT VALUES (sequenceCleCombattant.nextval, 'Marc', 'Paul', 5, null);
+INSERT INTO COMBATTANT VALUES (sequenceCleCombattant.nextval, 'Jules', 'rjx', 2, null);
+INSERT INTO COMBATTANT VALUES (sequenceCleCombattant.nextval, 'Pierre', 'Alexandre', 3, null);
+INSERT INTO COMBATTANT VALUES (sequenceCleCombattant.nextval, 'Vladimir', 'olga', 4, null);
+INSERT INTO COMBATTANT VALUES (sequenceCleCombattant.nextval, 'César', 'Pl', 2, null);
+INSERT INTO COMBATTANT VALUES (sequenceCleCombattant.nextval, 'Jolyne', 'Jojo', 1, null);
+INSERT INTO COMBATTANT VALUES (sequenceCleCombattant.nextval, 'Jonathan', 'Joeystar', 1, null);
 
-INSERT INTO LIEU VALUES (sequenceCleLieu.nextval, "Gymnase du Lycée Aubrac", "France", "Aubervilliers", "Rue de la jeunesse", 2);
-INSERT INTO LIEU VALUES (sequenceCleLieu.nextval, "Stade de France", "France", "Paris", "Rue du sport", 6);
-INSERT INTO LIEU VALUES (sequenceCleLieu.nextval, "Stade du Vélodrome", "France", "Marseille", "Rue de la commanderie", 25);
-INSERT INTO LIEU VALUES (sequenceCleLieu.nextval, "Coin de la Rue", "Italie", "Turin", "Rue de l'impasse", 42);
+INSERT INTO LIEU VALUES (sequenceCleLieu.nextval, 'Gymnase du Lycée Aubrac', 'France', 'Aubervilliers', 'Rue de la jeunesse', 2);
+INSERT INTO LIEU VALUES (sequenceCleLieu.nextval, 'Stade de France', 'France', 'Paris', 'Rue du sport', 6);
+INSERT INTO LIEU VALUES (sequenceCleLieu.nextval, 'Stade du Vélodrome', 'France', 'Marseille', 'Rue de la commanderie', 25);
+INSERT INTO LIEU VALUES (sequenceCleLieu.nextval, 'Coin de la Rue', 'Italie', 'Turin', 'Rue de impasse', 42);
 
-INSERT INTO ARBITRE VALUES (sequenceCleArbitre.nextval, "Hugo", "Latronch");
-INSERT INTO ARBITRE VALUES (sequenceCleArbitre.nextval, "William", "Burk");
-INSERT INTO ARBITRE VALUES (sequenceCleArbitre.nextval, "Creed", "Tronl");
+INSERT INTO ARBITRE VALUES (sequenceCleArbitre.nextval, 'Hugo', 'Latronch');
+INSERT INTO ARBITRE VALUES (sequenceCleArbitre.nextval, 'William', 'Burk');
+INSERT INTO ARBITRE VALUES (sequenceCleArbitre.nextval, 'Creed', 'Tronl');
 
 INSERT INTO TOURNOIS VALUES (1, 1, 2, 1, 2,to_date('01-03-2035','dd-mm-yyyy'),2,2);
 INSERT INTO TOURNOIS VALUES (1, 3, 4, 3, 2,to_date('01-03-2035','dd-mm-yyyy'),3,2);
