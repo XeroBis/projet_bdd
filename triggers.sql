@@ -22,8 +22,6 @@ SHOW ERROR;
 CREATE OR REPLACE TRIGGER T_block_ajout_non_gagnant
 BEFORE INSERT ON Tournoi
 FOR EACH ROW
-DECLARE
-  nbGagne NUMBER;
 BEGIN
   IF EXISTS(SELECT * FROM Tournoi WHERE idTournoi = :new.idTournoi AND Round = :new.Round*2) THEN
     IF NOT EXISTS (SELECT * FROM Tournoi WHERE idTournoi = :new.idTournoi AND Round = :new.Round*2 AND (idCombRouge = :new.idCombRouge OR idCombBleu = :new.idCombRouge) THEN
