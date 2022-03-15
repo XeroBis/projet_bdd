@@ -18,20 +18,30 @@ SHOW ERROR;
 -- to test :
 -- insert INTO TOURNOIS VALUES(1,2,1,2,2,to_date('15-02-2035','dd-mm-yyyy'),3,2);
 -- delete from TOURNOIS WHERE idTournoi =1 AND idCombRouge = 2 and idCombBleu = 1;
-
 CREATE OR REPLACE TRIGGER T_block_ajout_non_gagnant
-BEFORE INSERT ON Tournoi
+BEFORE INSERT ON TOURNOIS
 FOR EACH ROW
+DECLARE
+  nbRoundAvant     NUMBER;
+  roundAvantRouge  NUMBER;
+  roundAvantBleu   NUMBER;
 BEGIN
-  IF EXISTS(SELECT * FROM Tournoi WHERE idTournoi = :new.idTournoi AND Round = :new.Round*2) THEN
-    IF NOT EXISTS (SELECT * FROM Tournoi WHERE idTournoi = :new.idTournoi AND Round = :new.Round*2 AND (idCombRouge = :new.idCombRouge OR idCombBleu = :new.idCombRouge) THEN
-       RAISE_APPLICATION_ERROR( -20002, 'Combattant rouge n\'a pas  gagné dans le round précédent' );
-    ELSE
-       IF NOT EXISTS (SELECT * FROM Tournoi WHERE idTournoi = :new.idTournoi AND Round = :new.Round*2 AND (idCombRouge = :new.idCombBleu OR idCombBleu = :new.idCombBleu) THEN
-          RAISE_APPLICATION_ERROR( -20003, 'Combattant bleu n\'a pas  gagné dans le round précédent' );
-       END IF;
+  SELECT count(idTournoi) INTO nbRoundAvant 
+  FROM TOURNOIS 
+  WHERE idTournoi = :new.idTournoi AND Round = :new.Round*2;
+  IF nbRoundAvant > 1 THEN
+    SELECT count(idTournoi) INTO roundAvantRouge 
+    FROM TOURNOIS 
+    WHERE idTournoi = :new.idTournoi AND Round = :new.Round*2 AND idGagnant = :new.idCombRouge;
+
+    SELECT count(idTournoi) INTO roundAvantBleu 
+    FROM TOURNOIS 
+    WHERE idTournoi = :new.idTournoi AND Round = :new.Round*2 AND idGagnant = :new.idCombBleu;
+    
+    IF ((roundAvantRouge == 0) || (roundAvantBleu == 0)) THEN
+      RAISE_APPLICATION_ERROR( -20002, 'Combattant rouge ou bleu n a pas gagne dans le round precedent');
     END IF;
- END IF;
+  END IF;
 END;
 /
 SHOW ERROR;
