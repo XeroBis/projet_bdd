@@ -38,7 +38,7 @@ BEGIN
     FROM TOURNOIS 
     WHERE idTournoi = :new.idTournoi AND Round = :new.Round*2 AND idGagnant = :new.idCombBleu;
     
-    IF ((roundAvantRouge == 0) || (roundAvantBleu == 0)) THEN
+    IF (roundAvantRouge == 0 OR roundAvantBleu == 0) THEN
       RAISE_APPLICATION_ERROR( -20002, 'Combattant rouge ou bleu n a pas gagne dans le round precedent');
     END IF;
   END IF;
