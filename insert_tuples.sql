@@ -1,10 +1,8 @@
-/*
-COMBATTANT
-COACH
-ARBITRE
-LIEU
-TOURNOIS
-*/
+DROP SEQUENCE sequenceCleCoach;
+DROP SEQUENCE sequenceCleCombattant;
+DROP SEQUENCE sequenceCleLieu;
+DROP SEQUENCE sequenceCleArbitre;
+
 CREATE SEQUENCE sequenceCleCoach START WITH 1 INCREMENT BY 1;
 CREATE SEQUENCE sequenceCleCombattant START WITH 1 INCREMENT BY 1;
 CREATE SEQUENCE sequenceCleLieu START WITH 1 INCREMENT BY 1;
@@ -16,14 +14,14 @@ INSERT INTO COACH VALUES(sequenceCleCoach.nextval, 'Coralie', 'Makaise', 'fleurs
 INSERT INTO COACH VALUES(sequenceCleCoach.nextval, 'Owen', 'Marron', 'CRIEUR');
 INSERT INTO COACH VALUES(sequenceCleCoach.nextval, 'Alan', 'Hector', 'Winners');
 
-INSERT INTO COMBATTANT VALUES (sequenceCleCombattant.nextval, 'Pierre', 'Paul', 5, null);
-INSERT INTO COMBATTANT VALUES (sequenceCleCombattant.nextval, 'Marc', 'Paul', 5, null);
-INSERT INTO COMBATTANT VALUES (sequenceCleCombattant.nextval, 'Jules', 'rjx', 2, null);
-INSERT INTO COMBATTANT VALUES (sequenceCleCombattant.nextval, 'Pierre', 'Alexandre', 3, null);
-INSERT INTO COMBATTANT VALUES (sequenceCleCombattant.nextval, 'Vladimir', 'olga', 4, null);
-INSERT INTO COMBATTANT VALUES (sequenceCleCombattant.nextval, 'César', 'Pl', 2, null);
-INSERT INTO COMBATTANT VALUES (sequenceCleCombattant.nextval, 'Jolyne', 'Jojo', 1, null);
-INSERT INTO COMBATTANT VALUES (sequenceCleCombattant.nextval, 'Jonathan', 'Joeystar', 1, null);
+INSERT INTO COMBATTANT VALUES (sequenceCleCombattant.nextval, 'Pierre', 'Paul', 5, 0);
+INSERT INTO COMBATTANT VALUES (sequenceCleCombattant.nextval, 'Marc', 'Paul', 5, 0);
+INSERT INTO COMBATTANT VALUES (sequenceCleCombattant.nextval, 'Jules', 'rjx', 2, 0);
+INSERT INTO COMBATTANT VALUES (sequenceCleCombattant.nextval, 'Pierre', 'Alexandre', 3, 0);
+INSERT INTO COMBATTANT VALUES (sequenceCleCombattant.nextval, 'Vladimir', 'olga', 4, 0);
+INSERT INTO COMBATTANT VALUES (sequenceCleCombattant.nextval, 'César', 'Pl', 2, 0);
+INSERT INTO COMBATTANT VALUES (sequenceCleCombattant.nextval, 'Jolyne', 'Jojo', 1, 0);
+INSERT INTO COMBATTANT VALUES (sequenceCleCombattant.nextval, 'Jonathan', 'Joeystar', 1, 0);
 
 INSERT INTO LIEU VALUES (sequenceCleLieu.nextval, 'Gymnase du Lycée Aubrac', 'France', 'Aubervilliers', 'Rue de la jeunesse', 2);
 INSERT INTO LIEU VALUES (sequenceCleLieu.nextval, 'Stade de France', 'France', 'Paris', 'Rue du sport', 6);
