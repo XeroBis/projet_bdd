@@ -8,7 +8,6 @@ DROP TABLE ARBITRE CASCADE CONSTRAINTS;
 DROP TABLE LIEU CASCADE CONSTRAINTS;
 DROP TABLE TOURNOIS CASCADE CONSTRAINTS;
 
-
 prompt *************************************************************
 prompt ******************** CREATE TABLE ***************************
 prompt *************************************************************
@@ -20,7 +19,6 @@ CREATE TABLE COACH (
     nomClub     VARCHAR2(20),
     CONSTRAINTS pk_coach PRIMARY KEY (idCoach)
 );
-
 
 CREATE TABLE COMBATTANT (
     idComb      NUMBER,
@@ -48,8 +46,6 @@ CREATE TABLE ARBITRE (
     prenom          VARCHAR2(20),
     CONSTRAINTS pk_arbitre PRIMARY KEY (idArbitre)
 );
-
-
 
 CREATE TABLE TOURNOIS (
     idTournoi       NUMBER,
